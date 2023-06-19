@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/logo-dark.png" type="image/png" />
+    <title>summary | Join</title>
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/summary.css" />
+    <script src="./smallest_backend_ever/mini_backend.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/summary.js"></script>
+    <style type="text/css">
+      @font-face {
+        font-weight: 400;
+        font-style: normal;
+        font-family: circular;
+
+        src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Regular.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 500;
+        font-style: normal;
+        font-family: circular;
+
+        src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Medium.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 700;
+        font-style: normal;
+        font-family: circular;
+
+        src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2')
+          format('woff2');
+      }
+
+      @font-face {
+        font-weight: 900;
+        font-style: normal;
+        font-family: circular;
+
+        src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Black.woff2')
+          format('woff2');
+      }
+    </style>
+  </head>
+  <body onload="initSummary()" cz-shortcut-listen="true">
+    <div class="Mainheader" w3-include-html="./assets/templates/header.html">
+      <a href="./summary.html"
+        ><img src="./assets/img/Capa 1.png" alt="Join Logo"
+      /></a>
+      <div class="rightContainer">
+        <h2>Kanban Project Management Tool</h2>
+        <a href="./help.html" class="header-item-hide"
+          ><img src="./assets/img/Vector (2).png" alt=""
+        /></a>
+        <div id="menu_show" onclick="showMenu()" class="header-img-user">
+          GU
+        </div>
+        <div id="header_nav_popup" class="header-nav-popup">
+          <a href="./help.html" class="header-nav-popup-hide">Help</a>
+          <a href="./impress.html" class="header-nav-popup-hide"
+            >Legal Notice</a
+          >
+          <span onclick="logout()" class="header-nav-popup-logout"
+            >Log out</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="Main-Container">
+      <div class="sidebar" w3-include-html="./assets/templates/navigation.html">
+        <div id="sidebar-navigation" class="sidebar-navigation">
+          <a href="./summary.html" class="nav-link">
+            <img src="./assets/img/Vector (3).png" alt="" />
+            <p>Summary</p>
+          </a>
+
+          <a href="./board.html" class="nav-link">
+            <img src="./assets/img/Vector (4).png" alt="" />
+            <p>Board</p>
+          </a>
+
+          <a href="./add-task.html" class="nav-link">
+            <img src="./assets/img/Group 1.png" alt="" />
+            <p>Add Task</p>
+          </a>
+
+          <a href="./contacts.html" class="nav-link">
+            <img src="./assets/img/Vector (5).png" alt="" />
+            <p>Contacts</p>
+          </a>
+        </div>
+
+        <a class="legalNotice" href="./impress.html">
+          <img src="assets/img/Group 4 .png" alt="" />
+          <p>Legal notice</p>
+        </a>
+      </div>
+
+      <div class="mainside">
+        <div class="flexmid mainmorning">
+          <div id="user_greeting" class="morning"></div>
+          <div id="current_user_name" class="name"></div>
+        </div>
+
+        <div class="displayflex urgent-todo">
+          <a href="./board.html">
+            <div class="tasksurgent flexmid">
+              <div class="flexcolumn">
+                <div class="displayflex">
+                  <div>
+                    <img
+                      class="imgurgent"
+                      src="./assets/img/Urgent.png"
+                      alt=""
+                    />
+                  </div>
+
+                  <div id="number_of_tasks_urgent" class="urgentnumber"></div>
+                </div>
+
+                <div id="numberOfTasksUrgent" class="urgenttext">
+                  Tasks Urgent
+                </div>
+              </div>
+
+              <div class="bordermid"></div>
+
+              <div>
+                <div id="upcoming_deadline" class="deadlinetime">
+                  No upcoming deadline
+                </div>
+
+                <div class="deadlinetext">Upcoming Deadline</div>
+              </div>
+            </div>
+          </a>
+
+          <a href="./board.html">
+            <div class="todo">
+              <div class="flexaround">
+                <div>
+                  <img src="./assets/img/Board.png" alt="" />
+                </div>
+
+                <div id="number_of_tasks_todo" class="todonumber"></div>
+              </div>
+
+              <div class="todotext">Task To-do</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="displayflex task-line">
+          <a href="./board.html">
+            <div class="taskbot">
+              <div class="flexaround">
+                <div>
+                  <img class="taskimg" src="./assets/img/Board.png" alt="" />
+                </div>
+
+                <div id="number_of_tasks" class="tasknumber"></div>
+              </div>
+
+              <div class="taskettext">Task in<br />Board</div>
+            </div>
+          </a>
+
+          <a href="./board.html">
+            <div class="taskbot">
+              <div class="flexaround">
+                <div>
+                  <img
+                    class="taskimg"
+                    src="./assets/img/In Progress.png"
+                    alt=""
+                  />
+                </div>
+
+                <div id="number_of_tasks_in_progress" class="tasknumber"></div>
+              </div>
+
+              <div class="taskettext">Task in<br />Progress</div>
+            </div>
+          </a>
+
+          <a href="./board.html">
+            <div class="taskbot">
+              <div class="flexaround">
+                <div>
+                  <img
+                    class="taskimg"
+                    src="./assets/img/Awaiting feedback.png"
+                    alt=""
+                  />
+                </div>
+
+                <div
+                  id="number_of_tasks_awaiting_feedback"
+                  class="tasknumber"
+                ></div>
+              </div>
+
+              <div class="taskettext">Awaiting<br />Feedback</div>
+            </div>
+          </a>
+
+          <a href="./board.html">
+            <div class="taskbot">
+              <div class="flexaround">
+                <div>
+                  <img class="taskimg" src="./assets/img/Done.png" alt="" />
+                </div>
+
+                <div id="number_of_tasks_done" class="tasknumber"></div>
+              </div>
+
+              <div class="taskettext">Task<br />Done</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
